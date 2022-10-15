@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap icin css ve custom css dosylari eklendi static dosyamizin icinde-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet"href = "{% static 'css/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css'%}">
+
+  
+   
+    <!-- Navbar StaticFiles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap">
+    <link rel="stylesheet" href="{% static 'navbar/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet"href = "{% static 'navbar/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'navbar/fonts/icomoon/style.css'%}">
+    <link rel="stylesheet" href="{% static 'navbar/css/style.css'%}">
+
+
+
+
+    <title>Donaco</title>
+</head>
+<body>
+   
+    {% include "includes/navbar.html" %}
+  
+ 
+        {% block body %} 
+
+        {% endblock body %}
+       
+
+
+    <!-- Bootstrap icin JavaScript eklendi -->
+    <script src = "{% static 'js/bootstrap.bundle.min.js'%}"></script>
+    <script src = "{% static 'js/custom.js'%}"></script>
+    <script src = "{% static 'js/tiny-slider.js'%}"></script>
+
+    <!-- NavBar -->
+    <script src = "{% static 'navbar/js/jquery-3.3.1.min.js'%}"></script>
+    <script src = "{% static 'navbar/js/popper.min.js'%}"></script>
+    <script src = "{% static 'navbar/js/bootstrap.min.js'%}"></script>
+    <script src = "{% static 'navbar/js/jquery.sticky.js'%}"></script>
+    <script src = "{% static 'navbar/js/main.js'%}"></script>
+    
+   
+    </body>
+</html>
