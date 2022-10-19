@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from product.models import Product, ProductImage
+from product.models import Product, ProductImage, SliderProduct
 
 # Register your models here.
 
-
+admin.site.register(SliderProduct)
 admin.site.register(ProductImage)
 admin.site.register(Product)
 class ProductAdmin(admin.ModelAdmin):
