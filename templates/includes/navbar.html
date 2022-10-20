@@ -3,14 +3,14 @@
     {% load static %}
 
   
-    <div style="  height: 22vh;  width: 100%;
+    <div style="  height: 14vh;  width: 100%;
     background-color:  #3b5d50;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;">
     
   
-
+		
 
 
 		<!-- Start Header/Navigation -->
@@ -30,7 +30,7 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="index.html">Home</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
+						<li><a class="nav-link" {% if 'products' in request.path %}active{% endif %} href="{% url 'products' %}">Products</a></li>
 						<li><a class="nav-link" href="about.html">About us</a></li>
 						<li><a class="nav-link" href="services.html">Services</a></li>
 						<li><a class="nav-link" href="blog.html">Blog</a></li>
