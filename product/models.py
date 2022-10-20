@@ -16,10 +16,13 @@ CATEGORY_CHOICES = (
     ('P', 'Puf'),
 )
 
+
+
 class Product(models.Model):
     product_name = models.CharField(max_length = 256,null = True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=6)
     description = models.TextField(blank =True,null = True)
+    image = models.ImageField(upload_to ='product/image/%Y/%m/%d/',null = True)
     slug = models.SlugField( blank =True,null = True)
     def __str__(self):
         return self.product_name
