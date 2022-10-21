@@ -21,10 +21,11 @@ def products(request):
     return render(request, "products.html", context)
 
 def product_detail(request,slug):
-    product_list = Product.objects.all()
-    images = ProductImage.objects.all()
+    product = Product.objects.get(slug = slug)
+    
+    images = ProductImage.objects.all().filter(product = product)
     context = {
-        'products' : product_list,
+        'product' : product,
         'images' : images,
     }
-    return render(request, "products.html", context)
+    return render(request, "product_detail.html", context)
