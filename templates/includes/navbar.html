@@ -2,7 +2,18 @@
 
     {% load static %}
 
-  
+  <style>@media all and (min-width: 250px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+
+	 .dropdown-menu .dropdown-item:hover{
+		background-color: transparent;
+	 }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+
+}	</style>
+
+
     <div style="  height: 14vh;  width: 100%;
     background-color:  #3b5d50;
     background-size: cover;
@@ -31,10 +42,20 @@
 							<a class="nav-link" href="index.html">Home</a>
 						</li>
 						<li><a class="nav-link" {% if 'products' in request.path %}active{% endif %} href="{% url 'products' %}">Products</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li><a class="nav-link" href="about.html">
+							About</a></li>
+							<li><a class="nav-link" href="about.html">
+								e-catalog</a></li>
+							<li class="nav-item dropdown">
+								<a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Corporate</a>
+								 <ul class="dropdown-menu" style="background-color: #3b5d50;">
+								   <li><a class="dropdown-item" href="#">Fairs</a></li>
+								   <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+								   <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
+								 </ul>
+							 </li>
+				
+						<li><a class="nav-link" href="contact.html">Contact</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -49,4 +70,4 @@
  
   </div>
   
-   </div>
+   
