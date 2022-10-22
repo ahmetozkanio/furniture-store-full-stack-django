@@ -1,125 +1,235 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
-<style>
-  .product_detail  .carousel .carousel-item {
-  height: 20px;
-}
 
-.product_detail .carousel-item img {
-    position: absolute;
-    top: 0;
+
+<style>
+
+
+  .detail-carousel .carousel {
+    position: relative;
+  }
+
+  .detail-carousel .carousel-item img {
+    object-fit: cover;
+  }
+
+  .detail-carousel #carousel-thumbs {
+    background: rgba(255, 255, 255, 0.3);
+    bottom: 0;
     left: 0;
-    min-height: 15px;
-}
+    padding: 0 50px;
+    right: 0;
+  }
+
+  .detail-carousel #carousel-thumbs img {
+    border: 5px solid transparent;
+    cursor: pointer;
+  }
+
+  .detail-carousel #carousel-thumbs img:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .detail-carousel #carousel-thumbs .selected img {
+    border-color: #fff;
+  }
+
+  .detail-carousel .carousel-control-prev,
+  .detail-carousel .carousel-control-next {
+    width: 50px;
+  }
+
+  @media all and (max-width: 767px) {
+    .detail-carousel .carousel-container #carousel-thumbs img {
+      border-width: 3px;
+    }
+  }
+
+  @media all and (min-width: 576px) {
+    .detail-carousel .carousel-container #carousel-thumbs {
+      position: absolute;
+    }
+  }
+
+  @media all and (max-width: 576px) {
+    .detail-carousel .carousel-container #carousel-thumbs {
+      background: #ccccce;
+    }
+  }
 </style>
 
 
+<div class="container mt-5 mb-5">
+  <div class="card">
+    <div class="row g-0">
 
-<div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col col-lg-2">
-            1 of 3
-        </div>
-        <div class="col-md-auto">
-            <div class="ecommerce-gallery" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
-                <div class="row py-3 shadow-5">
-                  <div class="col-12 mb-1">
-                    <div class="lightbox">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/14a.webp"
-                        alt="Gallery image 1"
-                        class="ecommerce-gallery-main-img active w-100"
-                      />
-                    </div>
+     
+      <div class="col-md-6 border-end">
+
+        <div class="bootstrap4-0-0">
+          <div class="detail-carousel">
+        
+            <div class="carousel-container position-relative">
+
+              <!-- Sorry! Lightbox doesn't work - yet. -->
+
+              <div id="myCarousel" class="carousel" data-ride="carousel">
+                <div class="carousel-inner">
+
+                  {% for image in images %}
+                  <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} " data-slide-number="{{ forloop.counter0 }}">
+
+                    <img src="{{image.image.url}}"   style="object-fit: scale-down; width:100%; height: 400px;" alt="..."
+                      data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
+
+                   
                   </div>
-                  <div class="col-3 mt-1">
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/14a.webp"
-                      data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/14a.webp"
-                      alt="Gallery image 1"
-                      class="active w-100"
-                    />
+                  {% endfor %}
+
+<!-- 
+                  <div class="carousel-item active" data-slide-number="0">
+                    <img src="https://source.unsplash.com/Pn6iimgM-wo/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
                   </div>
-                  <div class="col-3 mt-1">
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
-                      data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
-                      alt="Gallery image 2"
-                      class="w-100"
-                    />
+                  <div class="carousel-item" data-slide-number="1">
+                    <img src="https://source.unsplash.com/tXqVe7oO-go/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/tXqVe7oO-go/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
                   </div>
-                  <div class="col-3 mt-1">
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
-                      data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
-                      alt="Gallery image 3"
-                      class="w-100"
-                    />
+                  <div class="carousel-item" data-slide-number="2">
+                    <img src="https://source.unsplash.com/qlYQb7B9vog/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/qlYQb7B9vog/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
                   </div>
-                  <div class="col-3 mt-1">
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/15a.webp"
-                      data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/15a.webp"
-                      alt="Gallery image 4"
-                      class="w-100"
-                    />
+                  <div class="carousel-item" data-slide-number="3">
+                    <img src="https://source.unsplash.com/QfEfkWk1Uhk/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/QfEfkWk1Uhk/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
                   </div>
+                  <div class="carousel-item" data-slide-number="4">
+                    <img src="https://source.unsplash.com/CSIcgaLiFO0/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/CSIcgaLiFO0/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
+                  </div>
+                  <div class="carousel-item" data-slide-number="5">
+                    <img src="https://source.unsplash.com/a_xa7RUKzdc/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/a_xa7RUKzdc/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
+                  </div>
+                  <div class="carousel-item" data-slide-number="6">
+                    <img src="https://source.unsplash.com/uanoYn1AmPs/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/uanoYn1AmPs/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
+                  </div>
+                  <div class="carousel-item" data-slide-number="7">
+                    <img src="https://source.unsplash.com/_snqARKTgoc/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/_snqARKTgoc/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
+                  </div>
+                  <div class="carousel-item" data-slide-number="8">
+                    <img src="https://source.unsplash.com/M9F8VR0jEPM/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/M9F8VR0jEPM/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
+                  </div>
+                  <div class="carousel-item" data-slide-number="9">
+                    <img src="https://source.unsplash.com/Q1p7bh3SHj8/1600x900/" class="d-block w-100" alt="..."
+                      data-remote="https://source.unsplash.com/Q1p7bh3SHj8/" data-type="image" data-toggle="lightbox"
+                      data-gallery="example-gallery">
+                  </div> -->
                 </div>
               </div>
-        </div>
-        <div class="col col-lg-2">
-            3 of 3
-        </div>
-    </div>
-    <div class="row">
-        <div class="col col-lg-3">
-            1 of 3
-        </div>
-        <div class="col-md-5">
 
-            <div class="product_carousel">
+              <!-- Carousel Navigation -->
+              <div id="carousel-thumbs" class="carousel" data-ride="carousel">
+                <div class="carousel">
+                  <div class="carousel-item active">
+                    <div class="row mx-0" >
 
-         
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    {% for image in images  %}
-
-
-                    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} ">
-                        <img src="{{ image.image.url }}" class="img img-fluid product-thumbnail d-block w-100 h-250">
+                      {% for image in images %}
+                      <div id="carousel-selector-{{ forloop.counter0 }}" class="thumb col-4 col-sm-2 px-1 py-2 {% if forloop.counter0 == 0 %} selected {% endif %}"
+                      data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}">
+                      <img src="{{image.image.url}}"  style="object-fit: scale-down; width:100%;" class="img-fluid" alt="...">
                     </div>
-        
-                    {% endfor %}
-   
-                    
-          
+                      {% endfor %}
+                      <!-- <div id="carousel-selector-0" class="thumb col-4 col-sm-2 px-1 py-2 selected"
+                        data-target="#myCarousel" data-slide-to="0">
+                        <img src="https://source.unsplash.com/Pn6iimgM-wo/600x400/" class="img-fluid" alt="...">
+                      </div>
+                      <div id="carousel-selector-1" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                        data-slide-to="1">
+                        <img src="https://source.unsplash.com/tXqVe7oO-go/600x400/" class="img-fluid" alt="...">
+                      </div>
+                      <div id="carousel-selector-2" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                        data-slide-to="2">
+                        <img src="https://source.unsplash.com/qlYQb7B9vog/600x400/" class="img-fluid" alt="...">
+                      </div>
+                      <div id="carousel-selector-3" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                        data-slide-to="3">
+                        <img src="https://source.unsplash.com/QfEfkWk1Uhk/600x400/" class="img-fluid" alt="...">
+                      </div>
+                      <div id="carousel-selector-4" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                        data-slide-to="4">
+                        <img src="https://source.unsplash.com/CSIcgaLiFO0/600x400/" class="img-fluid" alt="...">
+                      </div>
+                      <div id="carousel-selector-5" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                        data-slide-to="5">
+                        <img src="https://source.unsplash.com/a_xa7RUKzdc/600x400/" class="img-fluid" alt="...">
+                      </div> -->
                 
+                 
+                    </div>
+                  </div>
+              
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+              
+               
               </div>
 
             </div>
-
-
+          </div>
         </div>
-        <div class="col col-lg-3">
-      <h1>{{product.product_name}}</h1> 
-      <h5>{{product.description}}</h5>
+      </div>
+
+      <div class="col-md-6">
+        <div class="p-3 right-side">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3>IIlana</h3> <span class="heart"><i class='bx bx-heart'></i></span>
+          </div>
+          <div class="mt-2 pr-3 content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              ut
+              labore et dolore magna aliqua</p>
+          </div>
+          <h3>$430.99</h3>
+          <div class="ratings d-flex flex-row align-items-center">
+            <div class="d-flex flex-row"> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i
+                class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bx-star'></i>
+            </div>
+            <span>441 reviews</span>
+          </div>
+          <div class="mt-5"> <span class="fw-bold">Color</span>
+            <div class="colors">
+              <ul id="marker">
+                <li id="marker-1"></li>
+                <li id="marker-2"></li>
+                <li id="marker-3"></li>
+                <li id="marker-4"></li>
+                <li id="marker-5"></li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons d-flex flex-row mt-5 gap-3"> <button class="btn btn-outline-dark">Buy
+              Now</button> <button class="btn btn-dark">Add to Basket</button> </div>
+          <div class="search-option"> <i class='bx bx-search-alt-2 first-search'></i>
+            <div class="inputs"> <input type="text" name=""> </div> <i class='bx bx-share-alt share'></i>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 
@@ -129,6 +239,77 @@
 
 
 
+<script>$('#myCarousel').carousel({
+    interval: false
+  });
+  $('#carousel-thumbs').carousel({
+    interval: false
+  });
+
+  // handles the carousel thumbnails
+  // https://stackoverflow.com/questions/25752187/bootstrap-carousel-with-thumbnails-multiple-carousel
+  $('[id^=carousel-selector-]').click(function () {
+    var id_selector = $(this).attr('id');
+    var id = parseInt(id_selector.substr(id_selector.lastIndexOf('-') + 1));
+    $('#myCarousel').carousel(id);
+  });
+  // Only display 3 items in nav on mobile.
+  if ($(window).width() < 575) {
+    $('#carousel-thumbs .row div:nth-child(4)').each(function () {
+      var rowBoundary = $(this);
+      $('<div class="row mx-0">').insertAfter(rowBoundary.parent()).append(rowBoundary.nextAll().addBack());
+    });
+    $('#carousel-thumbs .carousel-item .row:nth-child(even)').each(function () {
+      var boundary = $(this);
+      $('<div class="carousel-item">').insertAfter(boundary.parent()).append(boundary.nextAll().addBack());
+    });
+  }
+  // Hide slide arrows if too few items.
+  if ($('#carousel-thumbs .carousel-item').length < 2) {
+    $('#carousel-thumbs [class^=carousel-control-]').remove();
+    $('.machine-carousel-container #carousel-thumbs').css('padding', '0 5px');
+  }
+  // when the carousel slides, auto update
+  $('#myCarousel').on('slide.bs.carousel', function (e) {
+    var id = parseInt($(e.relatedTarget).attr('data-slide-number'));
+    $('[id^=carousel-selector-]').removeClass('selected');
+    $('[id^=carousel-selector-' + id + ']').addClass('selected');
+  });
+  // when user swipes, go next or previous
+  $('#myCarousel').swipe({
+    fallbackToMouseEvents: true,
+    swipeLeft: function (e) {
+      $('#myCarousel').carousel('next');
+    },
+    swipeRight: function (e) {
+      $('#myCarousel').carousel('prev');
+    },
+    allowPageScroll: 'vertical',
+    preventDefaultEvents: false,
+    threshold: 75
+  });
+  /*
+  $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+  event.preventDefault();
+  $(this).ekkoLightbox();
+  });
+  */
+
+  $('#myCarousel .carousel-item img').on('click', function (e) {
+    var src = $(e.target).attr('data-remote');
+    if (src) $(this).ekkoLightbox();
+  });
+</script>
+
+
+
+
+        <!-- bootstrap4-0-0 -->
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- bootstrap4-0-0 -->
 
 
 {% endblock body %}
