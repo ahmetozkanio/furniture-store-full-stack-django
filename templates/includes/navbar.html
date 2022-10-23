@@ -3,18 +3,17 @@
     {% load static %}
 	{% load i18n %}
 
-
-  <style>@media all and (min-width: 250px) {
-	.navbar .nav-item .dropdown-menu{ display: none; }
-
-	 .dropdown-menu .dropdown-item:hover{
+<style>
+	@media all and (min-width: 250px) {
+	  .navbar .nav-item .dropdown-menu{ display: none; }
+	
+	   .dropdown-menu .dropdown-item:hover{
 		background-color: transparent;
-	 }
-	.navbar .nav-item:hover .dropdown-menu{ display: block; }
-	.navbar .nav-item .dropdown-menu{ margin-top:0; }
-
-}	</style>
-
+	   }
+	  .navbar .nav-item:hover .dropdown-menu{ display: block; }
+	  .navbar .nav-item .dropdown-menu{ margin-top:0; }
+	
+	}</style>
 
     <div style="  height: 14vh;  width: 100%;
     background-color:  #3b5d50;
@@ -43,29 +42,34 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="">{% trans 'Ana Sayfa' %}</a>
 						</li>
-						<li><a class="nav-link" {% if 'products' in request.path %}active{% endif %} href="{% url 'products' %}">Products</a></li>
-						<li><a class="nav-link" href="about.html">
-							About</a></li>
-							<a href="{% url 'set-language' 'tr' %}">TR</a>
-<a href="{% url 'set-language' 'en' %}">EN</a>
+						<li><a class="nav-link" {% if 'products' in request.path %}active{% endif %} href="{% url 'products' %}">{% trans 'Ürünler' %}</a></li>
+				
+							
 
-							<li><a class="nav-link" href="about.html">
-								e-catalog</a></li>
-							<li class="nav-item dropdown">
-								<a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Corporate</a>
+
+							<li><a class="nav-link" href="about.html">{% trans 'Hakkımızda' %}
+								</a></li>
+								<li><a class="nav-link" href="about.html">{% trans 'Fuarlar' %}
+								</a></li>
+
+							<!-- <li class="nav-item dropdown">
+								<a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">{% trans 'Kurumsal' %}</a>
 								 <ul class="dropdown-menu" style="background-color: #3b5d50;">
-								   <li><a class="dropdown-item" href="#">Fairs</a></li>
-								   <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
-								   <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
+									<li><a class="dropdown-item" href="#">{% trans 'Hakkımızda' %} </a></li>
+								   <li><a class="dropdown-item" href="#">{% trans 'Fuarlar' %}</a></li>
+					
 								 </ul>
 							 </li>
-				
-						<li><a class="nav-link" href="contact.html">Contact</a></li>
+				 -->
+						<li><a class="nav-link" href="contact.html">{% trans 'İletişim' %}</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="images/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
+
+					<a class="nav-link" style="padding-right: 8px;" href="{% url 'set-language' 'tr' %}"><img style="width: 18px; height: 18px" src="{% static 'locale/tr.png' %}" alt="TR"></a>
+
+					<a class="nav-link" href="{% url 'set-language' 'en' %}"><img style="width: 18px; height: 18px"  src="{% static 'locale/en.png' %}" alt="EN"></a>
+						
 					</ul>
 				</div>
 			</div>

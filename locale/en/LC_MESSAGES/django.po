@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-23 13:47+0300\n"
+"POT-Creation-Date: 2022-10-23 17:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,26 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: templates/includes/navbar.html:44
+#: templates/includes/navbar.html:33
 msgid "Ana Sayfa"
 msgstr "Home"
+
+#: templates/includes/navbar.html:35
+msgid "Ürünler"
+msgstr "Products"
+
+#: templates/includes/navbar.html:44
+msgid "Kurumsal"
+msgstr "Institutional"
+
+#: templates/includes/navbar.html:46
+msgid "Hakkımızda"
+msgstr "About Us"
+
+#: templates/includes/navbar.html:47
+msgid "Fuarlar"
+msgstr "Fairs"
+
+#: templates/includes/navbar.html:52
+msgid "İletişim"
+msgstr "Contact"
