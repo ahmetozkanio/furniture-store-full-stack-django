@@ -101,8 +101,8 @@
 						{% for product in products  %}
 						<!-- Start Product -->
 						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-							<a class="product-item" href="">
-							<img src="{{ product.image.url }}" class="card img-fluid product-thumbnail"  style="object-fit: scale-down; width:100%; height: 150px;">
+							<a class="product-item" href="{% url 'product_detail' product.slug %}">
+							<img src="{{ product.image.url }}" class="img-fluid product-thumbnail"  style="object-fit: scale-down; width:100%; height: 150px;">
 								<h3 class="product-title">{{product.product_name}}</h3>
 							</a>
 						</div>

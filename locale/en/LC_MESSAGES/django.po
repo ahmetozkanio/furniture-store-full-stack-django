@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-23 17:33+0300\n"
+"POT-Creation-Date: 2022-10-25 13:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,34 +18,94 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: donaco/settings.py:148
+#: donaco/settings.py:151
 msgid "Turkish"
 msgstr ""
 
-#: donaco/settings.py:149
+#: donaco/settings.py:152
 msgid "English"
 msgstr ""
 
-#: templates/includes/navbar.html:33
-msgid "Ana Sayfa"
-msgstr "Home"
+#: pages/urls.py:7
+msgid "urunler/"
+msgstr "products/"
 
-#: templates/includes/navbar.html:35
-msgid "Ürünler"
+#: pages/urls.py:8
+msgid "urunler/<slug:slug>"
+msgstr "products/<slug:slug>"
+
+#: product/models.py:31
+msgid "Masa Takımı"
+msgstr "Dinning Table Set"
+
+#: product/models.py:32
+msgid "Masa"
+msgstr ""
+
+#: product/models.py:33
+msgid "Sandalye"
+msgstr ""
+
+#: product/models.py:34
+msgid "Orta Sehpa"
+msgstr ""
+
+#: product/models.py:35
+msgid "Yan Sehpa"
+msgstr ""
+
+#: product/models.py:36
+msgid "Servis Sehpası"
+msgstr ""
+
+#: product/models.py:37
+msgid "Set Sehpa"
+msgstr ""
+
+#: product/models.py:38
+msgid "Puf"
+msgstr ""
+
+#: templates/includes/footer.html:61
+#, fuzzy
+#| msgid "Ürünler"
+msgid "Ürünlerimiz"
 msgstr "Products"
 
-#: templates/includes/navbar.html:44
-msgid "Kurumsal"
-msgstr "Institutional"
-
-#: templates/includes/navbar.html:46
+#: templates/includes/footer.html:62 templates/includes/navbar.html:50
+#: templates/includes/navbar.html:58
 msgid "Hakkımızda"
 msgstr "About Us"
 
-#: templates/includes/navbar.html:47
+#: templates/includes/footer.html:63 templates/includes/navbar.html:52
+#: templates/includes/navbar.html:59
 msgid "Fuarlar"
 msgstr "Fairs"
 
-#: templates/includes/navbar.html:52
+#: templates/includes/footer.html:64
+msgid "Bize Ulaşın"
+msgstr ""
+
+#: templates/includes/navbar.html:43
+msgid "Ana Sayfa"
+msgstr "Home"
+
+#: templates/includes/navbar.html:45
+msgid "Ürünler"
+msgstr "Products"
+
+#: templates/includes/navbar.html:56
+msgid "Kurumsal"
+msgstr "Institutional"
+
+#: templates/includes/navbar.html:64
 msgid "İletişim"
 msgstr "Contact"
+
+#, fuzzy
+#~| msgid "urunler"
+#~ msgid "urunler"
+#~ msgstr "products"
+
+#~ msgid "products/"
+#~ msgstr "products/"

@@ -2,6 +2,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse 
+from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 
@@ -25,10 +26,21 @@ class Category(models.Model):
         return self.name
 
 class Product(models.Model):
+
+    class Categories(models.TextChoices):
+        MasaTakımı = 'MasaT', _('Masa Takımı')
+        Masa = 'Masa', _('Masa')
+        Sandalye = 'Sandalye', _('Sandalye')        
+        OrtaSehpa = 'OrtaS', _('Orta Sehpa')
+        YanSehpa = 'YanS', _('Yan Sehpa')
+        ServisSehpası = 'ServisS', _('Servis Sehpası')
+        SetSehpa = 'SetS', _('Set Sehpa')
+        Puf = 'Puf', _('Puf')
+
     product_name = models.CharField(max_length = 256, null = True, unique=True)
     # category = models.CharField(choices=CATEGORY_CHOICES, max_length=6)
-    category = models.OneToOneField(Category,on_delete=models.CASCADE,related_name='category', null = True)
-    description = models.TextField(blank =True,null = True)
+    category = models.CharField(max_length=8,choices=Categories.choices)
+    description = models.TextField(null = True)
     image = models.ImageField(upload_to ='product/image/%Y/%m/%d/',null = True)
     slug = models.SlugField(blank =True,null = True, unique=True)
     
@@ -36,7 +48,7 @@ class Product(models.Model):
         return self.product_name
     
     def get_absolute_url(self):
-        return reverse("a", kwargs={"slug": self.slug})
+        return reverse("product_detail", kwargs={"slug": self.slug})
 
     # Product url icin otomatik ismi alir slug yerine yazar.
     def save(self, *args, **kwargs): 
