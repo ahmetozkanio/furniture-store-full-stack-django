@@ -3,6 +3,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse 
 from django.utils.translation import gettext_lazy as _
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 
@@ -40,7 +41,7 @@ class Product(models.Model):
     product_name = models.CharField(max_length = 256, null = True, unique=True)
     # category = models.CharField(choices=CATEGORY_CHOICES, max_length=6)
     category = models.CharField(max_length=8,choices=Categories.choices)
-    description = models.TextField(null = True)
+    description = RichTextField(null = True)
     image = models.ImageField(upload_to ='product/image/%Y/%m/%d/',null = True)
     slug = models.SlugField(blank =True,null = True, unique=True)
     
