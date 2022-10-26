@@ -43,6 +43,9 @@ INSTALLED_APPS = [
 
     'django_cleanup.apps.CleanupConfig',
 
+    'ckeditor',
+
+
     'pages',
     'product',
 ]
@@ -137,8 +140,14 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
 
-
-
+CKEDITOR_UPLOAD_PATH = "/media/uploads/"
+CKEDITOR_CONFIGS = {
+    "default": {
+        "removePlugins": "stylesheetparser",
+        "allowedContent": True,  # bunu biz ekledik html icin gerekli
+        "width": "100%",  # bu ise formun boyutu kadar genislik verdik
+    }
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

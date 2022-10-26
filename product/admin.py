@@ -1,8 +1,9 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-from product.models import Product, ProductImage, SliderProduct
+from product.models import HeroBottomProduct, Product, ProductImage, SliderProduct
 
 # Register your models here.
+admin.site.register(HeroBottomProduct)
 admin.site.register(SliderProduct)
 admin.site.register(ProductImage)
 

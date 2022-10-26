@@ -31,7 +31,7 @@
      
    
 			<div class="container">
-				<a class="navbar-brand" href="index.html"> <img src="{% static 'logo/donaco_logo.svg' %}" height="32" alt=""></a>
+				<a class="navbar-brand" href="{% url 'index' %}"> <img src="{% static 'logo/donaco_logo.svg' %}" height="32" alt=""></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item active">
-							<a class="nav-link" href="">{% trans 'Ana Sayfa' %}</a>
+							<a class="nav-link" href="{% url 'index' %}">{% trans 'Ana Sayfa' %}</a>
 						</li>
 						<li><a class="nav-link" {% if 'products' in request.path %}active{% endif %} href="{% url 'products' %}">{% trans 'Ürünler' %}</a></li>
 				

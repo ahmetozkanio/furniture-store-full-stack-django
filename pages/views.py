@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from product.models import Product, ProductImage, SliderProduct
+from product.models import HeroBottomProduct, Product, ProductImage, SliderProduct
 
 from django.utils import translation
 # Create your views here.
 
 def index(request):
     slider_products = SliderProduct.objects.all()
+    hero_bottom_products = HeroBottomProduct.objects.all()
     context = {
-        "slider_products": slider_products
+        "slider_products" : slider_products,
+        'hero_bottom_products' : hero_bottom_products
     }
     return render(request, "index.html", context)
 
