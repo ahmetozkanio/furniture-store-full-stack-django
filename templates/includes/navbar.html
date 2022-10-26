@@ -62,10 +62,14 @@
 							 </li>
 				 -->
 						<li><a class="nav-link" href="contact.html">{% trans 'İletişim' %}</a></li>
+				
 					</ul>
-					{% if 'products' in request.path %}
-					  
-{% else%}
+				
+
+					{% if  '/product/' in request.path  or '/urun/' in request.path %}
+					
+					{% else %}
+
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 
 					<a class="nav-link" style="padding-right: 8px;" href="{% url 'set-language' 'tr' %}"><img style="width: 18px; height: 18px" src="{% static 'locale/tr.png' %}" alt="TR"></a>
@@ -73,7 +77,8 @@
 					<a class="nav-link" href="{% url 'set-language' 'en' %}"><img style="width: 18px; height: 18px"  src="{% static 'locale/en.png' %}" alt="EN"></a>
 						
 					</ul>
-	{% endif %}
+					{% endif %}
+	
 				</div>
 			</div>
 

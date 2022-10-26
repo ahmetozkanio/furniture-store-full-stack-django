@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-25 13:31+0300\n"
+"POT-Creation-Date: 2022-10-26 11:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,13 +26,15 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: pages/urls.py:7
+#: pages/urls.py:10
+#, fuzzy
+#| msgid "urunler/urun/<slug:slug>"
+msgid "urun/<slug:slug>"
+msgstr "product/<slug:slug>"
+
+#: pages/urls.py:11
 msgid "urunler/"
 msgstr "products/"
-
-#: pages/urls.py:8
-msgid "urunler/<slug:slug>"
-msgstr "products/<slug:slug>"
 
 #: product/models.py:31
 msgid "Masa Takımı"
@@ -101,6 +103,10 @@ msgstr "Institutional"
 #: templates/includes/navbar.html:64
 msgid "İletişim"
 msgstr "Contact"
+
+#: templates/product_detail.html:213
+msgid "View this category in:"
+msgstr ""
 
 #, fuzzy
 #~| msgid "urunler"

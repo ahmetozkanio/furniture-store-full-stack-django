@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% block body %}
 
 
 <style>
-
-
   .detail-carousel .carousel {
     position: relative;
   }
@@ -64,12 +63,12 @@
   <div class="card">
     <div class="row g-0">
 
-     
+
       <div class="col-md-6 border-end">
 
         <div class="bootstrap4-0-0">
           <div class="detail-carousel">
-        
+
             <div class="carousel-container position-relative">
 
               <!-- Sorry! Lightbox doesn't work - yet. -->
@@ -78,17 +77,18 @@
                 <div class="carousel-inner">
 
                   {% for image in images %}
-                  <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} " data-slide-number="{{ forloop.counter0 }}">
+                  <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} "
+                    data-slide-number="{{ forloop.counter0 }}">
 
-                    <img src="{{image.image.url}}"   style="object-fit: scale-down; width:100%; height: 400px;" alt="..."
+                    <img src="{{image.image.url}}" style="object-fit: scale-down; width:100%; height: 400px;" alt="..."
                       data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox"
                       data-gallery="example-gallery">
 
-                   
+
                   </div>
                   {% endfor %}
 
-<!-- 
+                  <!-- 
                   <div class="carousel-item active" data-slide-number="0">
                     <img src="https://source.unsplash.com/Pn6iimgM-wo/1600x900/" class="d-block w-100" alt="..."
                       data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox"
@@ -146,13 +146,15 @@
               <div id="carousel-thumbs" class="carousel" data-ride="carousel">
                 <div class="carousel">
                   <div class="carousel-item active">
-                    <div class="row mx-0" >
+                    <div class="row mx-0">
 
                       {% for image in images %}
-                      <div id="carousel-selector-{{ forloop.counter0 }}" class="thumb col-4 col-sm-2 px-1 py-2 {% if forloop.counter0 == 0 %} selected {% endif %}"
-                      data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}">
-                      <img src="{{image.image.url}}"  style="object-fit: scale-down; width:100%;" class="img-fluid" alt="...">
-                    </div>
+                      <div id="carousel-selector-{{ forloop.counter0 }}"
+                        class="thumb col-4 col-sm-2 px-1 py-2 {% if forloop.counter0 == 0 %} selected {% endif %}"
+                        data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}">
+                        <img src="{{image.image.url}}" style="object-fit: scale-down; width:100%;" class="img-fluid"
+                          alt="...">
+                      </div>
                       {% endfor %}
                       <!-- <div id="carousel-selector-0" class="thumb col-4 col-sm-2 px-1 py-2 selected"
                         data-target="#myCarousel" data-slide-to="0">
@@ -178,14 +180,14 @@
                         data-slide-to="5">
                         <img src="https://source.unsplash.com/a_xa7RUKzdc/600x400/" class="img-fluid" alt="...">
                       </div> -->
-                
-                 
+
+
                     </div>
                   </div>
-              
+
                 </div>
-              
-               
+
+
               </div>
 
             </div>
@@ -195,9 +197,48 @@
 
       <div class="col-md-6">
         <div class="p-3 right-side">
-          <div class="d-flex justify-content-between align-items-center">
-            <h3>{{product.product_name}}</h3> <span class="heart"><i class='bx bx-heart'></i></span>
+       
+        
+          <div class="row">
+            <div class="col-10">
+              <div class="d-flex justify-content-between align-items-center">
+                <h3>{{product.product_name}}</h3> <span class="heart"><i class='bx bx-heart'></i></span>
+              </div>
+            </div>
+            
+            <div class="col-2" style="padding-left: 0px;padding-right: 0px;">
+              <div class="container">
+                <div class="row">
+                 
+                {% get_available_languages as languages %}
+
+
+                {% for lang_code, lang_name in languages %}
+                {% language lang_code %}
+                <div class="col" style="padding-left: 0px;padding-right: 0px;">
+                    
+               
+                  <a class="" href="{% url 'product_detail' slug=product.slug %}"><img
+                      style="width: 18px; height: 18px" src="
+                         {% if lang_code == 'tr' %}
+                             {% static 'locale/tr.png' %}
+                         {% elif lang_code == 'en' %}
+                             {% static 'locale/en.png' %}
+                         {% endif %}" alt="{{lang_code}}"></a>
+                   </div>
+                {% endlanguage %}
+                {% endfor %}
+              </div>
+            </div>
           </div>
+
+        
+          </div> 
+
+         
+       
+  
+
           <div class="mt-2 pr-3 content">
             <p>{{product.description}}</p>
           </div>
@@ -206,21 +247,12 @@
             <div class="d-flex flex-row"> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i
                 class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bx-star'></i>
             </div>
-            {% load i18n %}
 
-{% get_available_languages as languages %}
-
-{% translate "View this category in:" %}
-{% for lang_code, lang_name in languages %}
-    {% language lang_code %}
-    <a href="{% url 'product_detail' slug=product.slug %}">{{ lang_name }}</a>
-    {% endlanguage %}
-{% endfor %}
             <!-- <span>441 Kere bakildi</span> -->
           </div>
-  
- 
-    
+
+
+
         </div>
       </div>
     </div>
@@ -299,12 +331,14 @@
 
 
 
-        <!-- bootstrap4-0-0 -->
+<!-- bootstrap4-0-0 -->
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <!-- bootstrap4-0-0 -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- bootstrap4-0-0 -->
 
 
 {% endblock body %}
