@@ -3,17 +3,7 @@
     {% load static %}
 	{% load i18n %}
 
-<style>
-	@media all and (min-width: 250px) {
-	  .navbar .nav-item .dropdown-menu{ display: none; }
-	
-	   .dropdown-menu .dropdown-item:hover{
-		background-color: transparent;
-	   }
-	  .navbar .nav-item:hover .dropdown-menu{ display: block; }
-	  .navbar .nav-item .dropdown-menu{ margin-top:0; }
-	
-	}</style>
+
 
     <div style="  height: 14vh;  width: 100%;
     background-color:  #3b5d50;
@@ -39,15 +29,15 @@
 
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item active">
+						<li  class="{% if '#' in request.path %}nav-item  active {% endif %}">
 							<a class="nav-link" href="{% url 'index' %}">{% trans 'Ana Sayfa' %}</a>
 						</li>
-						<li><a class="nav-link" {% if 'products' in request.path %}active{% endif %} href="{% url 'products' %}">{% trans 'Ürünler' %}</a></li>
+						<li class="{% if 'product' in request.path %}nav-item  active {% elif 'urun' in request.path %}nav-item  active  {% endif %}"><a class="nav-link "href="{% url 'products' %}">{% trans 'Ürünler' %}</a></li>
 				
 							
 
 
-							<li><a class="nav-link" href="about.html">{% trans 'Hakkımızda' %}
+							<li  class="{% if '#' in request.path %}nav-item  active {% endif %}" ><a class="nav-link" href="about.html">{% trans 'Hakkımızda' %}
 								</a></li>
 								<li><a class="nav-link" href="about.html">{% trans 'Fuarlar' %}
 								</a></li>
