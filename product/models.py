@@ -85,3 +85,9 @@ class HeroBottomProduct(models.Model):
     product = models.ForeignKey(Product,related_name='hero_bottom_product', on_delete=models.CASCADE)
     def __str__(self):
         return self.product.product_name
+
+class CategoryProduct(models.Model):
+    product = models.ForeignKey(Product,related_name='category_product', on_delete=models.CASCADE)
+    description = models.CharField(max_length = 256, null = True,blank= True)
+    def __str__(self):
+        return self.product.category.name

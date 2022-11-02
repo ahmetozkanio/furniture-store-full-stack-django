@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 13:08+0300\n"
+"POT-Creation-Date: 2022-11-02 14:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,6 +73,10 @@ msgstr "Institutional"
 #: templates/includes/navbar.html:64
 msgid "İletişim"
 msgstr "Contact"
+
+#: templates/index.html:194
+msgid "Ürünleri Gör"
+msgstr "Show More"
 
 #: templates/products.html:38
 msgid "kategoriler"

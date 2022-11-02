@@ -4,6 +4,55 @@
 {% block body %}
 
 
+
+<style>
+  /**THE SAME CSS IS USED IN ALL 3 DEMOS**/    
+/**gallery margins**/  
+ul.gallery{    
+margin-left: 3vw;     
+margin-right:3vw;  
+}    
+
+.zoom {      
+-webkit-transition: all 0.35s ease-in-out;    
+-moz-transition: all 0.35s ease-in-out;    
+transition: all 0.35s ease-in-out;     
+cursor: -webkit-zoom-in;      
+cursor: -moz-zoom-in;      
+cursor: zoom-in;  
+}     
+
+.zoom:hover,  
+.zoom:active,   
+.zoom:focus {
+/**adjust scale to desired size, 
+add browser prefixes**/
+-ms-transform: scale(2.5);    
+-moz-transform: scale(2.5);  
+-webkit-transform: scale(2.5);  
+-o-transform: scale(2.5);  
+transform: scale(2.5);    
+position:relative;      
+z-index:100;  
+}
+
+/**To keep upscaled images visible on mobile, 
+increase left & right margins a bit**/  
+@media only screen and (max-width: 768px) {   
+ul.gallery {      
+margin-left: 15vw;       
+margin-right: 15vw;
+}
+
+/**TIP: Easy escape for touch screens,
+give gallery's parent container a cursor: pointer.**/
+.DivName {cursor: pointer}
+}
+</style>
+
+
+
+
 <style>
   .detail-carousel .carousel {
     position: relative;
@@ -14,7 +63,7 @@
   }
 
   .detail-carousel #carousel-thumbs {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 56, 56, 0.3);
     bottom: 0;
     left: 0;
     padding: 0 50px;
@@ -22,16 +71,17 @@
   }
 
   .detail-carousel #carousel-thumbs img {
-    border: 2px solid rgba(202, 253, 212, 0.888);
+  
+    border: 1px solid rgb(207, 155, 13);
     cursor: pointer;
   }
 
   .detail-carousel #carousel-thumbs img:hover {
-    border-color: rgba(0, 70, 233, 0.3);
+    border-color: rgb(26, 90, 54);
   }
 
   .detail-carousel #carousel-thumbs .selected img {
-    border-color: #3b5d50;
+    border-color: #ddff00;
   }
 
   .detail-carousel .carousel-control-prev,
@@ -150,12 +200,13 @@
 
                       {% for image in images %}
                       <div id="carousel-selector-{{ forloop.counter0 }}"
-                        class="thumb col-4 col-sm-2 px-1 py-2 {% if forloop.counter0 == 0 %} selected {% endif %}"
+                        class="list-inline gallery thumb col-4 col-sm-2 px-1 py-2 "
                         data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}">
-                        <img src="{{image.image.url}}" style="object-fit: scale-down; width:100%;" class="img-fluid"
+                        <img src="{{image.image.url}}" style="object-fit: scale-down; width:100%;" class="img-rounded zoom img-fluid"
                           alt="...">
                       </div>
                       {% endfor %}
+                  
                       <!-- <div id="carousel-selector-0" class="thumb col-4 col-sm-2 px-1 py-2 selected"
                         data-target="#myCarousel" data-slide-to="0">
                         <img src="https://source.unsplash.com/Pn6iimgM-wo/600x400/" class="img-fluid" alt="...">
@@ -242,6 +293,8 @@
           <div class="mt-2 pr-3 content">
             <p>{{product.description | safe}}</p>
           </div>
+        
+
           <!-- <h3>$430.99</h3> -->
           <div class="ratings d-flex flex-row align-items-center">
             <div class="d-flex flex-row"> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i
@@ -266,7 +319,8 @@
 
 
 
-<script>$('#myCarousel').carousel({
+<script>
+  $('#myCarousel').carousel({
     interval: false
   });
   $('#carousel-thumbs').carousel({
@@ -299,6 +353,7 @@
   // when the carousel slides, auto update
   $('#myCarousel').on('slide.bs.carousel', function (e) {
     var id = parseInt($(e.relatedTarget).attr('data-slide-number'));
+    console.log(id+ 'Ahmet');
     $('[id^=carousel-selector-]').removeClass('selected');
     $('[id^=carousel-selector-' + id + ']').addClass('selected');
   });
@@ -339,6 +394,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- bootstrap4-0-0 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
 {% endblock body %}
