@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% block body %}
 
 <!-- <div class="container">
@@ -25,96 +26,70 @@
 	} </style> -->
 
 
-
-
-
-
-
 <div style="height: 64px;"></div>
-
-
 
 <div class="container">
 	<div class="row">
-	
+		<div class="col-lg-3 mb-lg-0 mb-2">
+			<p>
+				<a class="btn btn-primary w-100 d-flex align-items-center justify-content-between"
+					data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
+					aria-controls="collapseExample">
+					<span class="fas fa-bars"><span class="ps-3">{% trans "kategoriler" %}</span></span>
+					<span class="fas fa-chevron-down"></span>
+				</a>
+			</p>
+			<div class="collapse show border" id="collapseExample">
+				<ul class="list-unstyled">
+					{% for category in category_list %}
+					<li><a class="dropdown-item" href="{% url 'category_products' category.slug %}">{{category}}</a>
+					</li>
+					{% endfor %}
 
-		
-        <div class="col-lg-3 mb-lg-0 mb-2">
-            <p>
-                <a class="btn btn-primary w-100 d-flex align-items-center justify-content-between"
-                    data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
-                    aria-controls="collapseExample">
-                    <span class="fas fa-bars"><span class="ps-3">All department</span></span>
-                    <span class="fas fa-chevron-down"></span>
-                </a>
-            </p>
-            <div class="collapse show border" id="collapseExample">
-                <ul class="list-unstyled">
-                    <li><a class="dropdown-item" href="#">Fresh Meat</a></li>
-                    <li><a class="dropdown-item" href="#">Vegetable</a></li>
-                    <li><a class="dropdown-item" href="#">Fruit & Nut Gifts</a></li>
-                    <li><a class="dropdown-item" href="#">Fresh Berries</a></li>
-                    <li><a class="dropdown-item" href="#">Ocean Foods</a></li>
-                    <li><a class="dropdown-item" href="#">Butter & Eggs</a></li>
-            
-                </ul>
-            </div>
-        </div>
-
-
-
-
-		<!-- <aside class="col-lg-3 col-md-4 col-xs-12 mb-5">
-
-			<div class="list-group">
-				<label class="list-group-item">
-					<input class="form-check-input me-1" type="checkbox" value="">
-					First checkbox
-				</label>
-				<label class="list-group-item">
-					<input class="form-check-input me-1" type="checkbox" value="">
-					Second checkbox
-				</label>
-				<label class="list-group-item">
-					<input class="form-check-input me-1" type="checkbox" value="">
-					Third checkbox
-				</label>
-				<label class="list-group-item">
-					<input class="form-check-input me-1" type="checkbox" value="">
-					Fourth checkbox
-				</label>
-				<label class="list-group-item">
-					<input class="form-check-input me-1" type="checkbox" value="">
-					Fifth checkbox
-				</label>
+				</ul>
 			</div>
-			<div style="height: 25px;"></div>
-			<button style="width: 100%;" type="button" class="btn btn-primary">Ara</button>
-		</aside> -->
+		</div>
+
+
+
+
+
 		<div class="content col-lg-9 col-md-8 col-xs-12">
 
-			<!-- Start Product Section -->
-			<div class="product-section">
-				<div class="container">
-					<div class="row">
+	
 
-						{% for product in products  %}
-						<!-- Start Product -->
-						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-							<a class="product-item" href="{% url 'product_detail' product.slug %}">
-							<img src="{{ product.image.url }}" class="img-fluid product-thumbnail"  style="object-fit: scale-down; width:100%; height: 150px;">
-								<h3 class="product-title">{{product.product_name}}</h3>
-							</a>
+					<!-- Start Product Section -->
+					<div class="product-section">
+						<div class="container">
+							<div class="row">
+								<div class="container">
+									<div class="row">
+
+
+										{% for product in products  %}
+										<!-- Start Product -->
+										<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+											<a class="product-item" href="{% url 'product_detail' product.slug %}">
+												<img src="{{ product.image.url }}" class="img-fluid product-thumbnail"
+													style="object-fit: scale-down; width:100%; height: 150px;">
+												<h3 class="product-title">{{product.product_name}}</h3>
+											</a>
+										</div>
+										<!-- End Product -->
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+							<!-- End Product Section -->
+
+
 						</div>
-						<!-- End Product -->
-						{% endfor %}
 					</div>
-				</div>
-			</div>
-			<!-- End Product Section -->
+			
 
+
+	
 		</div>
 	</div>
 </div>
-
-{% endblock body %}
+	{% endblock body %}

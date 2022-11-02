@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 13:18+0300\n"
+"POT-Creation-Date: 2022-11-02 13:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: donaco/settings.py:151
+#: donaco/settings.py:160
 msgid "Turkish"
 msgstr ""
 
-#: donaco/settings.py:152
+#: donaco/settings.py:161
 msgid "English"
 msgstr ""
 
@@ -34,37 +34,9 @@ msgstr "product/<slug:slug>"
 msgid "urunler/"
 msgstr "products/"
 
-#: product/models.py:31
-msgid "Masa Takımı"
-msgstr "Dinning Table Set"
-
-#: product/models.py:32
-msgid "Masa"
-msgstr ""
-
-#: product/models.py:33
-msgid "Sandalye"
-msgstr ""
-
-#: product/models.py:34
-msgid "Orta Sehpa"
-msgstr ""
-
-#: product/models.py:35
-msgid "Yan Sehpa"
-msgstr ""
-
-#: product/models.py:36
-msgid "Servis Sehpası"
-msgstr ""
-
-#: product/models.py:37
-msgid "Set Sehpa"
-msgstr ""
-
-#: product/models.py:38
-msgid "Puf"
-msgstr ""
+#: pages/urls.py:12
+msgid "urunler/<slug:slug>"
+msgstr "products/<slug:slug>"
 
 #: templates/includes/footer.html:61
 #, fuzzy
@@ -101,6 +73,13 @@ msgstr "Institutional"
 #: templates/includes/navbar.html:64
 msgid "İletişim"
 msgstr "Contact"
+
+#: templates/products.html:38
+msgid "kategoriler"
+msgstr "categories"
+
+#~ msgid "Masa Takımı"
+#~ msgstr "Dinning Table Set"
 
 #, fuzzy
 #~| msgid "urunler"

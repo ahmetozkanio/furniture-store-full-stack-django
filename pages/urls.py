@@ -9,6 +9,8 @@ urlpatterns = [
     path('',views.index,name = "index" ),
     path(_('urun/<slug:slug>'),views.product_detail, name = "product_detail" ),
     path(_('urunler/'),views.products,name = "products" ),
+    path(_('urunler/<slug:slug>'),views.category_products,name = "category_products" ),
+    # path(_('urunler/<int:id>'),views.category_products,name = "category_products" ),
 
 ]
 
