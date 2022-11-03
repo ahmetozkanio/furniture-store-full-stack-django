@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-from product.models import Category, CategoryProduct, HeroBottomProduct, Product, ProductImage, SliderProduct
+from product.models import Category, CategoryProduct, HeroBottomProduct, Product, ProductCatalogImage, ProductImage, SliderProduct
 
 # Register your models here.
 
@@ -15,11 +15,12 @@ admin.site.register(ProductImage)
 
 class ProductImagesAdmin(admin.StackedInline):
     model = ProductImage 
-    
+class ProductCatalogImagesAdmin(admin.StackedInline):
+    model = ProductCatalogImage    
 @admin.register(Product)
 class ProductAdmin(TranslationAdmin):
     group_fieldsets = True  
-    inlines = [ProductImagesAdmin]
+    inlines = [ProductImagesAdmin,ProductCatalogImagesAdmin]
     list_display = ('product_name',)
     prepopulated_fields = {"slug": ("product_name",),}
     class Media:

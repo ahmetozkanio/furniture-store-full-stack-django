@@ -310,7 +310,29 @@ give gallery's parent container a cursor: pointer.**/
       </div>
     </div>
   </div>
+  <div style="height: 32px;" ></div>
+ 
+  <div class="col">
+    <div class="container">
+      <div class="row">
+         
+          <div class="col-sm">
+            {% for catalog in catalog_images %}
+            <img  src="{{catalog.image.url}}" class="img-fluid rounded"alt="...">
+            {% endfor %}
+         
+      
+            </div>
+       
+     
+      
+      </div>
+    </div>
+  </div>
+
+
 </div>
+
 
 
 

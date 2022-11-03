@@ -1,7 +1,8 @@
 from unicodedata import category
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from product.models import Category, CategoryProduct, HeroBottomProduct, Product, ProductImage, SliderProduct
+from pages.models import About
+from product.models import Category, CategoryProduct, HeroBottomProduct, Product, ProductCatalogImage, ProductImage, SliderProduct
 
 from django.utils import translation
 # Create your views here.
@@ -49,12 +50,22 @@ def product_detail(request, slug):
 
     product = Product.objects.get(slug = slug)
     images = ProductImage.objects.all().filter(product = product)
+    catalog_images = ProductCatalogImage.objects.all().filter(product = product)
     slug = product.get_absolute_url()
 
     context = {
         'product' : product,
         'slug' : slug,
         'images' : images,
+        'catalog_images' : catalog_images,
     }
     return render(request, "product_detail.html", context)
 
+def about(request):
+    about_object = About.objects.all()
+   
+    context = {
+        "about_object" : about_object,
+    
+    }
+    return render(request, "about.html", context)

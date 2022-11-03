@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block body %}
+<div style="height: 64px;"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div style="height: 32px;"></div>
+           <div class="text-center"> <img  src="{% static 'logo/blogo.png' %}" style="height: 98px;" class="img-fluid rounded"alt="..."></div>
+           <div style="height: 32px;"></div>
+            {% for about_item in about_object %}
+            {{about_item.description | safe}}
+            {% endfor %}
+           
+          </div>
+        <div class="col-sm">
+
+        <img  src="{% static 'picture/90.jpg' %}" class="img-fluid rounded"alt="...">
+    
+          </div>
+     
+   
+    
+    </div>
+  </div>
+  
+	
+{% endblock body %}

@@ -12,6 +12,7 @@ urlpatterns = [
     path(_('urunler/<slug:slug>'),views.category_products,name = "category_products" ),
     # path(_('urunler/<int:id>'),views.category_products,name = "category_products" ),
 
+    path(_('hakkimizda'),views.about,name = "about" ),
 ]
 
 

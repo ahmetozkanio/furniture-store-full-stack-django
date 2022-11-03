@@ -71,10 +71,15 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='product_image', on_delete= models.CASCADE)
-    image = models.ImageField(upload_to ='product/images/%Y/%m/%d/')
+    image = models.ImageField(upload_to ='product/images/%Y/%m/%d/',null=True,blank= True)
     def __str__(self):
         return self.product.product_name
 
+class ProductCatalogImage(models.Model):
+    product = models.ForeignKey(Product, related_name='product_catalog_image', on_delete= models.CASCADE)
+    image = models.ImageField(upload_to ='product/images/catalog/%Y/%m/%d/',null=True,blank= True)
+    def __str__(self):
+        return self.product.product_name
 
 class SliderProduct(models.Model):
     product = models.ForeignKey(Product,related_name='slider_product', on_delete=models.CASCADE)
