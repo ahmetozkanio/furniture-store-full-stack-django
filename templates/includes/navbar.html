@@ -1,61 +1,33 @@
+{% load static %}
+{% load i18n %}
+<style>
 
+</style>
 
-    {% load static %}
-	{% load i18n %}
+<nav class="custom2-navbar navbar navbar-dark navbar-expand-md" style="background-color: #3b5d50;" aria-label="Eighth navbar example">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"> <img src="{% static 'logo/donaco_logo.svg' %}" height="32" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
+            aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-
-
-    <div style="  height: 14vh;  width: 100%;
-    background-color:  #3b5d50;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;">
-    
-  
-		
-
-
-		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark fixed-top" arial-label="donaco">
-   
-     
-   
-			<div class="container">
-				<a class="navbar-brand" href="{% url 'index' %}"> <img src="{% static 'logo/donaco_logo.svg' %}" height="32" alt=""></a>
-
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li  class="{% if '#' in request.path %}nav-item  active {% endif %}">
-							<a class="nav-link" href="{% url 'index' %}">{% trans 'Ana Sayfa' %}</a>
-						</li>
-						<li class="{% if 'product' in request.path %}nav-item  active {% elif 'urun' in request.path %}nav-item  active  {% endif %}"><a class="nav-link "href="{% url 'products' %}">{% trans 'Ürünler' %}</a></li>
-				
-							
-
-
-							<li  class="{% if '#' in request.path %}nav-item  active {% endif %}" ><a class="nav-link" href="about.html">{% trans 'Hakkımızda' %}
-								</a></li>
-								<li><a class="nav-link" href="about.html">{% trans 'Fuarlar' %}
-								</a></li>
-
-							<!-- <li class="nav-item dropdown">
-								<a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">{% trans 'Kurumsal' %}</a>
-								 <ul class="dropdown-menu" style="background-color: #3b5d50;">
-									<li><a class="dropdown-item" href="#">{% trans 'Hakkımızda' %} </a></li>
-								   <li><a class="dropdown-item" href="#">{% trans 'Fuarlar' %}</a></li>
-					
-								 </ul>
-							 </li>
-				 -->
-						<li><a class="nav-link" href="contact.html">{% trans 'İletişim' %}</a></li>
-				
-					</ul>
-				
-
+        <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class=" custom-navbar-nav2  navbar-nav ms-auto mb-2 mb-md-0">
+                <li class="nav-item active">
+                    <a class="nav-link " aria-current="page" href="{% url 'index' %}">{% trans 'Ana Sayfa' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products' %}">{% trans 'Ürünler' %}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">{% trans 'Fuarlar' %}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">{% trans 'İletişim' %}</a>
+            </li>
+            </ul>
+        
 					{% if  '/product/' in request.path  or '/urun/' in request.path %}
 					
 					{% else %}
@@ -69,12 +41,107 @@
 					</ul>
 					{% endif %}
 	
-				</div>
-			</div>
+        </div>
+    </div>
+</nav>
+<!-- <nav class="navbar shadow" style="background-color: #3b5d50;">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"> <img src="{% static 'logo/donaco_logo.svg' %}" height="32" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+      
+      </div>
+    </div>
+  </nav> -->
 
-		</nav>
-		<!-- End Header/Navigation -->
+
+<!-- 
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
+    <div class="container">
+      <a class="navbar-brand" href="#">Container</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample07">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown07">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form>
+          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+        </form>
+      </div>
+    </div>
+  </nav> -->
+
+
+  <!-- <li  class="{% if '#' in request.path %}nav-item  active {% endif %}">
+    <a class="nav-link" href="{% url 'index' %}">{% trans 'Ana Sayfa' %}</a>
+</li>
+<li class="{% if 'product' in request.path %}nav-item  active {% elif 'urun' in request.path %}nav-item  active  {% endif %}"><a class="nav-link "href="{% url 'products' %}">{% trans 'Ürünler' %}</a></li>
+
+    
+
+
+    <li  class="{% if '#' in request.path %}nav-item  active {% endif %}" ><a class="nav-link" href="about.html">{% trans 'Hakkımızda' %}
+        </a></li>
+        <li><a class="nav-link" href="about.html">{% trans 'Fuarlar' %}
+        </a></li>
+
+  <li class="nav-item dropdown">
+        <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">{% trans 'Kurumsal' %}</a>
+         <ul class="dropdown-menu" style="background-color: #3b5d50;">
+            <li><a class="dropdown-item" href="#">{% trans 'Hakkımızda' %} </a></li>
+           <li><a class="dropdown-item" href="#">{% trans 'Fuarlar' %}</a></li>
+
+         </ul>
+     </li>
+-->
+<!-- <li><a class="nav-link" href="contact.html">{% trans 'İletişim' %}</a></li> --> 
+
+
+
+
+<script>
+    $(document).ready(function () {
  
-  </div>
-  
-   
+ $('ul.navbar-nav > li')
+         .click(function (e) {
+     $('ul.navbar-nav > li')
+         .removeClass('active');
+     $(this).addClass('active');
+ });
+});
+</script>
