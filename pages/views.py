@@ -86,3 +86,10 @@ def fair_detail(request, slug):
         'images' : images,
     }
     return render(request, "fair_detail.html", context)
+
+def contact(request):
+   
+    context = {
+        "contact" : 'contact',
+    }
+    return render(request, "contact.html", context)
