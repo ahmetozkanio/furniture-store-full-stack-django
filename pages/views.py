@@ -1,7 +1,7 @@
 from unicodedata import category
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from pages.models import About
+from pages.models import About, Fair, FairImage
 from product.models import Category, CategoryProduct, HeroBottomProduct, Product, ProductCatalogImage, ProductImage, SliderProduct
 
 from django.utils import translation
@@ -63,9 +63,26 @@ def product_detail(request, slug):
 
 def about(request):
     about_object = About.objects.all()
-   
     context = {
         "about_object" : about_object,
-    
     }
     return render(request, "about.html", context)
+
+def fair(request):
+    fairs = Fair.objects.all()
+    context = {
+        "fairs" : fairs,
+    }
+    return render(request, "fairs.html", context)
+
+
+def fair_detail(request, slug):
+
+    fair = Fair.objects.get(slug = slug)
+    images = FairImage.objects.all().filter(fair = fair)
+
+    context = {
+        'fair' : fair,
+        'images' : images,
+    }
+    return render(request, "fair_detail.html", context)

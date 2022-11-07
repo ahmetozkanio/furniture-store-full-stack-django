@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block body %}
+
+
+
+		<!-- Start Blog Section -->
+		<div class="blog-section">
+			<div class="container">
+				
+				<div class="row">
+
+					{% for fair in fairs  %}
+					  
+				
+
+					<div class="col-12 col-sm-6 col-md-4 mb-5">
+						<div class="post-entry">
+							<a href="{% url 'fair_detail' fair.slug %}" class="post-thumbnail"><img src="{{fair.image.url}}" alt="Image" class="img-fluid"></a>
+							<div class="post-content-entry">
+								<h3><a href="{% url 'fair_detail' fair.slug %}">{{fair.name}}</a></h3>
+								<div class="meta">
+									<span>{{fair.date}}</span>		
+								</div>
+							</div>
+						</div>
+					</div>
+
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<!-- End Blog Section -->	
+
+		{% endblock body %}

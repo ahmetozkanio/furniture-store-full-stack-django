@@ -1,6 +1,6 @@
 from modeltranslation.translator import  TranslationOptions, register
 
-from pages.models import About
+from pages.models import About,Fair
 
 
 
@@ -9,3 +9,7 @@ from pages.models import About
 class AboutTranslationOptions(TranslationOptions):
     fields = ('description',)
 
+
+@register(Fair)
+class FairTranslationOptions(TranslationOptions):
+    fields = ('name','description',)
