@@ -16,6 +16,7 @@ urlpatterns = [
     path(_('fuarlar'),views.fair,name = "fairs" ),
     path(_('fuar/<slug:slug>'),views.fair_detail,name = "fair_detail" ),
     path(_('iletisim'),views.contact,name = "contact" ),
+    path(_('katalog'),views.catalog,name = "catalog" ),
 ]
 
 

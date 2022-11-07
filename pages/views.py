@@ -88,8 +88,7 @@ def fair_detail(request, slug):
     return render(request, "fair_detail.html", context)
 
 def contact(request):
-   
-    context = {
-        "contact" : 'contact',
-    }
-    return render(request, "contact.html", context)
+    return render(request, "contact.html")
+
+def catalog(request):
+    return render(request, "catalog.html")

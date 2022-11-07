@@ -127,6 +127,9 @@ aria-label="Eighth navbar example">
       <li class="nav-item">
         <a class="nav-link" href="{% url 'contact' %}">{% trans 'İletişim' %}</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'catalog' %}">{% trans 'Katalog' %}</a>
+      </li>
     </ul>
 
     {% if  '/product/' in request.path  or '/urun/' in request.path %}
