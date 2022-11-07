@@ -5,7 +5,8 @@ from django.urls.base import resolve, reverse
 from django.urls.exceptions import Resolver404
 from django.utils import translation
 
-from product.models import Product
+
+
 
 
 def set_language(request, language):
