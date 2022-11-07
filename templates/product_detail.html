@@ -26,9 +26,9 @@
                   <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} "
                     data-slide-number="{{ forloop.counter0 }}">
 
-                    <img src="{{image.image.url}}" style="object-fit: scale-down; width:100%; height: 400px;" alt="..."
-                      data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox"
-                      data-gallery="example-gallery">
+                    <a data-modal="bs-lightbox" href="{{image.image.url}}" class="post-thumbnail">     <img src="{{image.image.url}}" style="object-fit: scale-down; width:100%; height: 400px;" alt="..."
+                      data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" 
+                      data-gallery="example-gallery"> </a>
 
 
                   </div>
@@ -98,7 +98,7 @@
                       <div id="carousel-selector-{{ forloop.counter0 }}"
                         class="list-inline gallery thumb col-4 col-sm-2 px-1 py-2 "
                         data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}">
-                        <img src="{{image.image.url}}" style="object-fit: scale-down; width:100%;" class="img-rounded zoom img-fluid"
+                      <img src="{{image.image.url}}" style="object-fit: scale-down; width:100%;" class="img-rounded zoom img-fluid"
                           alt="...">
                       </div>
                       {% endfor %}
