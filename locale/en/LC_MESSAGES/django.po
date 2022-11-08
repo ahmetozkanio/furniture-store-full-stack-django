@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 14:28+0300\n"
+"POT-Creation-Date: 2022-11-08 19:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: donaco/settings.py:160
+#: donaco/settings.py:161
 msgid "Turkish"
 msgstr ""
 
-#: donaco/settings.py:161
+#: donaco/settings.py:162
 msgid "English"
 msgstr ""
 
@@ -38,49 +38,84 @@ msgstr "products/"
 msgid "urunler/<slug:slug>"
 msgstr "products/<slug:slug>"
 
-#: templates/includes/footer.html:61
-#, fuzzy
-#| msgid "Ürünler"
+#: pages/urls.py:15
+msgid "hakkimizda"
+msgstr "about-us"
+
+#: pages/urls.py:16
+msgid "fuarlar"
+msgstr "fairs"
+
+#: pages/urls.py:17
+msgid "fuar/<slug:slug>"
+msgstr "product/<slug:slug>"
+
+#: pages/urls.py:18
+msgid "iletisim"
+msgstr "contact-us"
+
+#: pages/urls.py:19
+msgid "katalog"
+msgstr "catalog"
+
+#: templates/catalog.html:13 templates/includes/navbar.html:131
+msgid "Katalog"
+msgstr "Catalog"
+
+#: templates/catalog.html:14
+msgid "Lütfen kataloğa tıklayınız.."
+msgstr "Please click on the catalog..."
+
+#: templates/includes/footer.html:58
+msgid "Koleksiyonlar"
+msgstr "Collections"
+
+#: templates/includes/footer.html:71
 msgid "Ürünlerimiz"
 msgstr "Products"
 
-#: templates/includes/footer.html:62 templates/includes/navbar.html:50
-#: templates/includes/navbar.html:58
+#: templates/includes/footer.html:72 templates/includes/navbar.html:122
 msgid "Hakkımızda"
-msgstr "About Us"
+msgstr "About us"
 
-#: templates/includes/footer.html:63 templates/includes/navbar.html:52
-#: templates/includes/navbar.html:59
+#: templates/includes/footer.html:73 templates/includes/navbar.html:125
 msgid "Fuarlar"
 msgstr "Fairs"
 
-#: templates/includes/footer.html:64
+#: templates/includes/footer.html:74
 msgid "Bize Ulaşın"
-msgstr ""
+msgstr "Contact us"
 
-#: templates/includes/navbar.html:43
+#: templates/includes/footer.html:75
+msgid "Kataloğumuz"
+msgstr "Catalog"
+
+#: templates/includes/footer.html:84 templates/includes/navbar.html:128
+msgid "İletişim"
+msgstr "Contact us"
+
+#: templates/includes/footer.html:145
+msgid "Tüm Hakları Saklıdır."
+msgstr "All Rights Reserved."
+
+#: templates/includes/navbar.html:117
 msgid "Ana Sayfa"
 msgstr "Home"
 
-#: templates/includes/navbar.html:45
+#: templates/includes/navbar.html:120
 msgid "Ürünler"
 msgstr "Products"
 
-#: templates/includes/navbar.html:56
-msgid "Kurumsal"
-msgstr "Institutional"
-
-#: templates/includes/navbar.html:64
-msgid "İletişim"
-msgstr "Contact"
-
-#: templates/index.html:194
+#: templates/index.html:198
 msgid "Ürünleri Gör"
 msgstr "Show More"
 
-#: templates/products.html:38
+#: templates/products.html:17
 msgid "kategoriler"
 msgstr "categories"
+
+#~ msgid "Kurumsal"
+#~ msgstr "Institutional"
 
 #~ msgid "Masa Takımı"
 #~ msgstr "Dinning Table Set"

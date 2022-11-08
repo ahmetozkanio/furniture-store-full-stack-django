@@ -72,6 +72,7 @@
 							<li><a href="{% url 'about' %}" style="color: #3b5d50;">{% trans 'Hakkımızda' %}</a></li>
 							<li><a href="{% url 'fairs' %}" style="color: #3b5d50;">{% trans 'Fuarlar' %}</a></li>
 							<li><a href="{% url 'contact' %}" style="color: #3b5d50;">{% trans 'Bize Ulaşın' %}</a></li>
+							<li><a href="{% url 'catalog' %}" style="color: #3b5d50;">{% trans 'Kataloğumuz' %}</a></li>
 						</ul>
 					</div>
 
@@ -140,8 +141,8 @@
 		<div class="border-top copyright">
 			<div class="row pt-4">
 				<div class="col-lg-6">
-					<p class="mb-2 text-center text-lg-start"> <b> donaco design objects</b> &copy;
-						<script>document.write(new Date().getFullYear());</script>. all rights reserved.
+					<p class="mb-2 text-center text-lg-start">&copy; 
+						<script>document.write(new Date().getFullYear());</script><b> donaco design objects</b> {% trans "Tüm Hakları Saklıdır." %}
 						
 					
 					</p>
@@ -150,7 +151,7 @@
 					Designed
 						with by <a  href="https://www.linkedin.com/in/ahmetozkanio/">ahmetozkanio</a>
 				</div>
-<!-- 
+			<!-- 
 				<div class="col-lg-6 text-center text-lg-end">
 					<ul class="list-unstyled d-inline-flex ms-auto">
 						<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
