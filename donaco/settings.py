@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 
@@ -136,6 +137,17 @@ STATICFILES_DIRS = [
    # '/var/www/static/',
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+AWS_ACCESS_KEY_ID = os.environ.get('AKIA3TPER7C47O2R2IOR')
+AWS_SECRET_ACCESS_KEY = os.environ.get('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')
+AWS_STORAGE_BUCKET_NAME = '<donaco>'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
 
 
 MEDIA_URL = '/media/'
