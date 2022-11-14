@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c81u79#v7$k*volt(0hp%k^%sv+#zb@s5%7%0@6-t!o0_-0l2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['donaco.herokuapp.com']
+ALLOWED_HOSTS = ['donaco.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
 
     'django_cleanup.apps.CleanupConfig',
-
+    'storages',
     'ckeditor',
 
 
@@ -138,16 +138,20 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-AWS_ACCESS_KEY_ID = os.environ.get('AKIA3TPER7C47O2R2IOR')
-AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-AWS_STORAGE_BUCKET_NAME = '<donaco>'
+#S3 BUCKETS CONFIG
 
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+AWS_S3_REGION_NAME = 'eu-central-1' #change to your region
+AWS_S3_SIGNATURE_VERSION = 's3v4'
 
+AWS_ACCESS_KEY_ID = 'AKIA3TPER7C47O2R2IOR'
+AWS_SECRET_ACCESS_KEY = '9Ep85SsFcAP+KvGf/KD72wnUVP6ohDqaKdeDEub3'
+AWS_STORAGE_BUCKET_NAME = 'donaco'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 MEDIA_URL = '/media/'
